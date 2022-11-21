@@ -41,6 +41,10 @@ def export():
     except:
         return redirect('/')
 
+def plus(a, b):
+    return a + b
 
+def mult(a, b):
+    return a * b
 
 app.run()
