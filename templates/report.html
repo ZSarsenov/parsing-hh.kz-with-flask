@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JobScrapper</title>
+    <style>
+        section{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(5, 1fr);
+        }
+    </style>
+</head>
+<body>
+<h1>Результаты поиска</h1>
+<h3>Найдено {{search_results}} результатов по запросу: {{searchBy}} </h3>
+<a href='export?keyword={{searchBy}}'>Экспорт в CSV</a>
+<section>
+    <h4>Название вокансии</h4>
+    <h4>Компания</h4>
+    <h4>Местоположение</h4>
+    <h4>Зарплата</h4>
+    <h4>Ссылка</h4>
+    {% for job in jobs %}
+    <span>{{job.title}}</span>
+    <span>{{job.company}}</span>
+    <span>{{job.location}}</span>
+    <span>{{job.solary}}</span>
+    <a href="{{job.company_link}}" target="_blank">Перейти на сайт</a>
+    {% endfor %}
+</section>
+</body>
+</html>
